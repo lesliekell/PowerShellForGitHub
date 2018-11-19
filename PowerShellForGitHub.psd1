@@ -22,6 +22,7 @@
         'GitHubAnalytics.ps1',
         'GitHubBranches.ps1',
         'GitHubCore.ps1',
+        'GitHubGists.ps1',
         'GitHubIssues.ps1',
         'GitHubLabels.ps1',
         'GitHubMiscellaneous.ps1',
