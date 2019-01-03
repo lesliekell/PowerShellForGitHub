@@ -897,7 +897,7 @@ filter ConvertTo-SmarterObject
             {
                 try
                 {
-                    $property.Value = Get-Date -Date $property.Value
+                    $property.Value = (Get-Date -Date $property.Value).ToUniversalTime()
                 }
                 catch
                 {
