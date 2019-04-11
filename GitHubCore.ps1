@@ -277,7 +277,8 @@ function Invoke-GHRestMethod
                             Write-Log -Message "Unable to retrieve the raw HTTP Web Response:" -Exception $_ -Level Warning
                         }
 
-                        throw (ConvertTo-Json -InputObject $ex -Depth 20)
+                        $jsonConversionDepth = 20 # Seems like it should be more than sufficient
+                        throw (ConvertTo-Json -InputObject $ex -Depth $jsonConversionDepth)
                     }
                 }
 

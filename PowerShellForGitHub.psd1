@@ -37,7 +37,6 @@
         'GitHubRepositoryTraffic.ps1',
         'GitHubTeams.ps1',
         'GitHubUsers.ps1',
-        'NugetTools.ps1',
         'Telemetry.ps1')
 
     # Minimum version of the Windows PowerShell engine required by this module
@@ -45,6 +44,9 @@
 
     # Functions to export from this module
     FunctionsToExport = @(
+        'Get-BaseTelemetryEvent',
+
+
         'Add-GitHubIssueLabel',
         'Backup-GitHubConfiguration',
         'Clear-GitHubAuthentication',
