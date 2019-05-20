@@ -219,7 +219,7 @@ function Invoke-SendTelemetryEvent
 
     try
     {
-        Write-Log -Message "Sending telemetry event data to [$method] $url [Timeout = $(Get-GitHubConfiguration -Name WebRequestTimeoutSec))]" -Level Verbose
+        Write-Log -Message "Sending telemetry event data to $uri [Timeout = $(Get-GitHubConfiguration -Name WebRequestTimeoutSec))]" -Level Verbose
 
         $NoStatus = Resolve-ParameterWithDefaultConfigurationValue -Name NoStatus -ConfigValueName DefaultNoStatus
         if ($NoStatus)
@@ -512,11 +512,13 @@ function Set-TelemetryEvent
 
         Add-Member -InputObject $telemetryEvent.data.baseData -Name 'name' -Value $EventName -MemberType NoteProperty -Force
 
+        # Properties
         foreach ($property in $Properties.GetEnumerator())
         {
             Add-Member -InputObject $telemetryEvent.data.baseData.properties -Name $property.Key -Value $property.Value -MemberType NoteProperty -Force
         }
 
+        # Measurements
         if ($Metrics.Count -gt 0)
         {
             $measurements = @{}
